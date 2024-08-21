@@ -205,7 +205,7 @@ func (s *Service) trackUpstream(ctx context.Context, duration time.Duration) {
 		if err != nil {
 			log.Warningf("Service %q, error pulling repo %q: %s", s.Service, s.Upstream, err)
 			s.SetState(StateDiff, fmt.Sprintf("error pulling %q: %s", s.Upstream, err))
-			continue
+			break
 		}
 
 		if !changed {
